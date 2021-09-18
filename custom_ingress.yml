@@ -1,0 +1,43 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: custom-ingress
+  namespace: rasa-x-ns
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.org/client-max-body-size: "0"
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: rasa-x-ns-rasa-x
+              port:
+                number: 5002
+        - path: /core/(.*)
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: rasa-x-ns-rasa-production
+              port:
+                number: 5005
+        - path: /webhooks/
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: rasa-x-ns-rasa-production
+              port:
+                number: 5005
+        - path: /socket.io
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: rasa-x-ns-rasa-production
+              port:
+                number: 5005
+        
+        

@@ -1,0 +1,8 @@
+postgresql:
+    install: false 
+    existingHost: db-ns-postgresql.db-ns.svc.cluster.local
+    existingSecretKey: postgres
+
+global:
+    postgresql:
+        existingSecret: db-credentials

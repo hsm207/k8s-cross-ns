@@ -1,0 +1,11 @@
+nginx:
+    enabled: false
+
+ingress:
+    enabled: false
+    annotations:
+        ingress.kubernetes.io/rewrite-target: /
+    hosts:
+        - host: wwww.mybot.com 
+          paths:
+          - /

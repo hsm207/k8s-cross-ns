@@ -1,0 +1,6 @@
+image:
+    debug: true
+
+postgresqlDatabase: rasa
+postgresqlUsername: postgres
+postgresqlPassword: safe_credential
