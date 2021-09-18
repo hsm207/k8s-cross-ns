@@ -1,6 +1,6 @@
 # Introduction
 
-This repo contains code to accompany [The Basics Of Enabling Pods To Communicate Across Namepaces In Kubernetes]() blog post on Medium
+This repo contains code to accompany [The Basics Of Enabling Pods To Communicate Across Namespaces In Kubernetes](https://pub.towardsai.net/the-basics-of-enabling-pods-to-communicate-across-namespaces-in-kubernetes-b6e5dbec2d3a) blog post on Medium
 
 # Prerequisites
 
