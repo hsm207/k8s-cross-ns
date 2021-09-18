@@ -5,13 +5,16 @@ postgres_svc_ip=`kubectl get service -n $DB_NS \
     -o custom-columns=ipaddr:.spec.clusterIP`
 
 kubectl create -f https://k8s.io/examples/admin/dns/busybox.yaml
+
 sleep 5
+
 postgres_svc_fqn=`kubectl exec -it busybox -- nslookup $postgres_svc_ip | \
     grep Address | \
     tail -1 | \
     cut -f 4 -d \  | \
     tr -d '\n'`
 
+echo "The FQN of the postgresql service is: $postgres_svc_fqn"
 
 cat <<EOF > values.nodb.yml
 postgresql:
